@@ -13,37 +13,21 @@ class Food {
         this.carb = carb; 
         this.protein = protein
     }
-    compareFat (myObject){
+    compareFat (otherofood){
      
-        const maxFat = this.fat
-          
-        if ( myObject[fat] > maxFat){
-
-            return `this is the highest fat : ${this.fat}`
-        }
+      return this.fat > otherofood.fat;
     }
    
-    compareCarb(myObject){
-          const maxCarb = this.carb
+    compareCarb(otherofood){
+         
+        return this.carb > otherofood.carb;
+    }
+    CompareProtein(otherofood){
+ return this.protein > otherofood.protein;
           
-        if ( myObject[carb] > maxCarb){
-
-            return `this is the highest fat : ${this.carb}`
-        }
-
+        
     }
-    CompareProtein(myObject){
-  const maxprotein = this.protein
-          
-        if ( myObject[protein] > maxprotein){
-
-            return `this is the highest fat : ${this.protein}`
-        }
-    }
-    getDetails (){
-        return `this is food name is ${foodName} and it has fat:${this.fat} and it has carb:${this.carb} and it has protein:${this.protein}`
-
-    }
+  
 
 }
 const foods =[];
@@ -51,9 +35,9 @@ const foods =[];
 submit.addEventListener("submit", function(e){
     e.preventDefault();
     const fname = foodName.value;
-      const fatname = fat.value;
-        const carbname = carb.value;
-          const proteinname = protein.value;
+      const fatname = Number(fat.value);
+        const carbname = Number(carb.value);
+          const proteinname = Number(protein.value);
     
     const myObject = new Food(fname,fatname,carbname,proteinname)
     for (const key in myObject) {
