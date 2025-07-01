@@ -58,10 +58,19 @@ compare.addEventListener("click", function(){
 
 for (let i = 0; i < foods.length; i++) {
     const element = foods[i];
- maxfat = maxfat.compareFat(element);
- maxcarb = maxcarb.compareCarb(element);
- maxprotein = maxprotein.CompareProtein(element)
+  if (element.compareFat(maxfat)) {
+            maxfat = element;
+        }
+
+        if (element.compareCarb(maxcarb)) {
+            maxcarb = element;
+        }
+
+        if (element.CompareProtein(maxprotein)) {
+            maxprotein = element;
+        }
 
     
 }
+result.innerHTML = `<li>This is the highest fat ${maxfat.foodName}</li>`
 })
