@@ -3,7 +3,7 @@ const fat = document.getElementById("fat");
 const carb = document.getElementById("carb");
 const protein = document.getElementById("protein");
 const submit = document.getElementById("submit");
-const list = document.getElementById("list");
+const result = document.getElementById("result");
 const compare = document.getElementById("compare");
 
 class Food {
@@ -46,16 +46,22 @@ submit.addEventListener("submit", function(e){
             
         
     }
-    console.log(myObject.CompareProtein())
     foods.push(myObject)
-    console.log(foods)
    
-    console.log(myObject.getDetails())
+   
 })
 
 compare.addEventListener("click", function(){
-for (const objects of foods) {
-    objects
+    let maxfat = foods[0];
+    let maxcarb = foods[0];
+    let maxprotein = foods[0];
+
+for (let i = 0; i < foods.length; i++) {
+    const element = foods[i];
+ maxfat = maxfat.compareFat(element);
+ maxcarb = maxcarb.compareCarb(element);
+ maxprotein = maxprotein.CompareProtein(element)
+
     
 }
 })
